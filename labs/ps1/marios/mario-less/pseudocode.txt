@@ -1,0 +1,15 @@
+1. Make a loop which asks for the user input. If the input is lower than 1 and
+   greater than 8, persist in the loop, otherwise break out of it.
+
+                IN an O(n^2) Algorithem
+2. Print a newline character.
+
+3. Create a variable which keeps track of required amount of spaces one will need
+   when iterating through the columns.
+
+4. If the iteration through the column is less than the user height,
+        print spaces.
+   Otherwise,
+        print hashes.
+
+5. Decrease the number of spaces required for each iteration through a row and print a blank space.

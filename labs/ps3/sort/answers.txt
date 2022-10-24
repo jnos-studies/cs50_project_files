@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: The standard deviation of average times is more disparate than the others, this is due to bubble sorts upper and lower bounds (Being O(n^s) and Omega(n))
+
+sort2 uses: Merge Sort
+
+How do you know?: Merge sort is the fastest of the three with Theta(n log n) as a sorting algorithm, it has the smallest std deviation of it's averages at 0.0025891511550513433; thus being faster and more consistant than the rest.
+
+sort3 uses: Selection Sort
+
+How do you know?: Has the Big O algorithm of Theta(n^2), it has consistently stayed at an average of 0.9034 and consists of the largest std deviation in comparison with sort 2 at 0.08504777742213154

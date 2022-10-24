@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function PopeCorrect(a, el)
+            {
+                //a is the value of the button pressed and el stands for the element to be changed
+                if (a != 26)
+                {
+                    document.getElementById("s1").innerText = "Incorrect"
+                    document.getElementById("s1").style = "display: block"
+                    el.style.backgroundColor = "red"
+                }
+                else
+                {
+                    document.getElementById("s1").innerText = "Correct!"
+                    document.getElementById("s1").style = "display: block"
+                    el.style.backgroundColor = "green"
+                }
+            }
+            function textCorrect(a, el)
+            {
+                if (a.toLowerCase() != "yes")
+                {
+                    document.getElementById("s2").innerText = "Incorrect"
+                    document.getElementById("s2").style = "display: block"
+                    el.style.backgroundColor = "red"
+                }
+                else
+                {
+                    document.getElementById("s2").innerText = "Correct"
+                    document.getElementById("s2").style = "display: block"
+                    el.style.backgroundColor = "green"
+                }
+            }
+            window.onload = function ()
+            {
+                //declare variables for each of the dom elements to be manipulated
+                let multiple_c = document.getElementById("multiple_choice")
+                let second_question = document.getElementById("s2btn")
+                let textInput = document.getElementById("input_text")
+
+                const CHOICES = [23,37,27,26]
+                for (let i  = 0; i < CHOICES.length; i++)
+                {
+                    let answer = document.createElement("button")
+                    answer.innerText = CHOICES[i]
+                    answer.setAttribute("type", "button")
+                    answer.setAttribute("value", CHOICES[i])
+                    answer.className = "btn btn-primary btn-lg"
+                    answer.addEventListener("click", ()=>
+                    {
+                        PopeCorrect(answer.value, answer)
+                    })
+                    multiple_c.appendChild(answer)
+                }
+
+                second_question.addEventListener("click", () =>
+                {
+                    textCorrect(textInput.value, textInput)
+                })
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>How many years was Pope John II Pope?</h3>
+                <p id="s1" class="status_text"></p>
+
+                <div id="multiple_choice"></div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Do you like cheese?</h3>
+                <p id="s2" class="status_text"></p>
+                <input type="text" id="input_text">
+                <button id="s2btn" type="button" class="btn btn-primary btn-sm">Submit!</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+        <script>
+          window.onload = function () {
+            let mystery_box = document.getElementById("mystery-box")
+            let joke_box = document.getElementById("joke-box")
+            let pic_links_of_interests = [
+              "https://i.pinimg.com/originals/2e/ca/8c/2eca8c49731707bcb7f658c9ee336fa9.jpg",
+              "https://www.lifewire.com/thmb/pITpMmVoDuAQVCq7OHD_idCbw_Q=/2200x1467/filters:fill(auto,1)/computer-hardware-2625895-5d9007ac0d44404588321d255fc82049.jpg",
+              "https://miro.medium.com/max/1400/0*z1mm6izqSeDiKukb",
+              "https://preview.redd.it/bqydx388iui41.jpg?auto=webp&s=b36ba444889c01279e377e87f670dc5884a390a7",
+              "https://cdn-prod.medicalnewstoday.com/content/images/articles/320/320566/man-sleeping.jpg",
+              "https://nypost.com/wp-content/uploads/sites/2/2022/03/food-toilet-1-copy.jpg?quality=75&strip=all",
+              "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/WOPA160517_D056-resized.jpg?crop=864%2C0%2C1728%2C2304&wid=600&hei=800&scl=2.88"
+            ]
+            mystery_box.addEventListener("click", () =>
+            {
+              //remove the elements to just show a list of pictures.
+              mystery_box.parentElement.firstChild.remove()
+              mystery_box.remove()
+              for (i = 0; i < pic_links_of_interests.length; i++)
+              {
+                //set an attribute for each image element in the list
+                let image = document.createElement("img")
+                image.setAttribute("src", pic_links_of_interests[i])
+                image.setAttribute("class", "rounded mx-auto d-block interest_pics")
+                image.setAttribute("alt", "a picture of an interest I have")
+                //append it to the joke-box div element to create a list of pictures.
+                joke_box.appendChild(image)
+              }
+            })
+          }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Jacob's Website</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <img id="menu_icon" src="https://icon-library.com/images/white-menu-icon-png/white-menu-icon-png-18.jpg" alt="menu icon">
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="interests.html">My Interests</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cats.html">Pictures of Cats</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="favorite_game.html">Favorite Game</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <main>
+            <h1>
+              Click on the box below to reveal my interests.
+              <small class="text-muted">No click-bait I promise!</small>
+            </h1>
+            <div id="mystery-box">
+              <img src="https://img.freepik.com/premium-vector/mystery-box-icon_79145-244.jpg?w=2000" class="rounded mx-auto d-block" alt="Secret box.">
+            </div>
+            <div id="joke-box"></div>
+          </main>
+    </body>
+</html>

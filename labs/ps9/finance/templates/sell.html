@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="input-group mb-3" id="selling">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Your stocks</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" name="symbol" type="text">
+                {% for stonk in stonks %}
+                    <option>{{ stonk.symbol }}</option>
+                {% endfor %}
+            </select>
+          </div>
+
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value): null" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
